@@ -1,0 +1,1 @@
+--update mt2sql14.sitecontrol.dbo.categorycode set Cwmfull = 1 , ispdt = 1 , clientpdt =1, isfull=1 where category in ('GENCA50T','GEN50FLX','GENCA50')

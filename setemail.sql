@@ -1,0 +1,25 @@
+Exec MT2SQL00.master.dbo.sp_procExportData 
+    @subject= 'Master Brand Assignment - Whirlpool Canada - <date>'
+	, @filename = 'Master Brand - Whirlpool Canada - <date>'
+    , @message = 'Please find Excel containing Master Brand list for Whirlpool Canada as of now.'
+    , @recipients = 'hbhagat@markettrack.com;'
+    , @cc_recipients = 'pmakwana@markettrack.com;'
+    , @tabname='MaterBrand_CatBrand'
+    , @servername = 'MT2SQL05'
+    , @dbname = 'SQL05'
+    , @query = 'Select distinct category,brand,isnull(productterritory,'''') as [Master Brand] from whcaADLdetailreports order by category,brand'
+    , @exporttype = 'Excel'
+
+	--Exec MT2Dev0.master.dbo.sp_procExportData
+	  @subject= 'Hasbro - Manufacturer Assignment Table - <date>'
+	, @message = 'Manufacturer and MC Assignment'
+	, @recipients = 'kturon@markettrack.com;adryden@markettrack.com;mhamilton@markettrack.com;lroland@markettrack.com;tboyd@markettrack.com;rburns@markettrack.com;'
+	, @cc_recipients = 'vkantawala@markettrack.com;pmakwana@markettrack.com;mjoshi@markettrack.com;krunals@markettrack.com;hbhagat@markettrack.com;'
+	, @tabname='HAS50-Unassigned;DistinctCatBrMfrPD'
+	, @filename = 'Hasbro - Manufacturer Assignment Table - <date>.xlsx'
+	, @servername = 'mt2sql14'
+	, @dbname = 'sitecontrol'
+	, @query = 'Select * from tempdb..hasfinalMFR order by 2,3;Select distinct * from mt2sql14.tempdb.dbo.has50AllAssignedPD order by 1,2,4'
+	, @exporttype = 'Excel'
+	, @zip = 'True'
+	, @debug = 0
